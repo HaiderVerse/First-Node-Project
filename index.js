@@ -1,6 +1,9 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import { fileURLToPath } from 'url';
+import path from 'path';
+import router from './routes/static.js';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url)); 
 
 const app = express();
 const PORT = 5000;
@@ -10,23 +13,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Define routes
-app.get('/', (req, res) => {
-  res.render('layout', {
-    title: 'Home',
-    body: 'pages/home'
-  });
-});
 
-app.get('/about', (req, res) => {
-  res.render('layout', {
-    title: 'About',
-    body: 'pages/about'
-  });
-});
-app.get('/login', (req, res) => {
-  res.render('login')
-})
+app.use('/', router);
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

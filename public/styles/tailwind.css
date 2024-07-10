@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#carousel::-webkit-scrollbar {
+    display: none;
+}
+#carousel {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.disabled-btn {
+    background-color: #d1d5db;
+    color: #9ca3af;
+}
+.disabled-btn:hover {
+    background-color: #d1d5db;
+    color: #9ca3af;
+}
