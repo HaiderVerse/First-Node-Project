@@ -12,63 +12,11 @@
 
 <body class="bg-zinc-800">
   <%- include('../partials/header') %>
-    <main>
-      <%- include(body) %> <!-- Include the content dynamically -->
-    </main>
-    <%- include('../partials/footer') %>
-      <script>
-        // JavaScript code for carousel functionality
-        const slides = [
-          { image: '/assets/super-saiyan-goku-ultra-instinct-thumb.jpg', alt: 'Image 1'},
-          { image: '/assets/thumb-1920-1331367.png', alt: 'Image 2'},
-          { image: '/assets/wallpapersden.com_demon-hd-dark-angel-2023_1920x1080.jpg', alt: 'Image 3'}
-        ];
-
-        let currentSlide = 0;
-        const carousel = document.getElementById('carousel');
-
-        function updateSlide() {
-          const slide = slides[currentSlide];
-          const img = document.createElement('img');
-          img.src = slide.image;
-          img.alt = slide.alt;
-          img.className = 'absolute w-full h-full object-cover transform translate-x-full opacity-0 transition-transform ease-in-out duration-[1400ms]'; // Set initial class with transform transition
-          carousel.appendChild(img);
-
-          // Trigger reflow to apply initial styles before animating transform
-          img.offsetWidth; // eslint-disable-line
-
-          // Remove transform transition class after reflow to animate transform change
-          img.classList.remove('translate-x-full', 'opacity-0');
-          img.classList.add('translate-x-0', 'opacity-100');
-
-          // Remove previous slide after transition ends
-          setTimeout(() => {
-            const prevImg = carousel.querySelector('img:not(.opacity-100)');
-            if (prevImg) {
-              prevImg.classList.add('opacity-0'); // Start fading out previous slide
-              setTimeout(() => {
-                prevImg.remove(); // Remove previous slide after opacity transition
-              }, 1000); // Adjust duration to match transition duration
-            }
-          }, 1000); // Adjust duration to match transition duration
-        }
-
-        function nextSlide() {
-          currentSlide = (currentSlide + 1) % slides.length;
-          updateSlide();
-        }
-
-        function prevSlide() {
-          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-          updateSlide();
-        }
-        // Auto slide change every 5 seconds
-        setInterval(nextSlide, 5000);
-
-        // Initial update
-        updateSlide();
-      </script>
+  <main>
+    <%- include(body) %> <!-- Include the content dynamically -->
+  </main>
+  <%- include('../partials/footer') %>
+  <script src="/js/home.js"></script>
 </body>
 
 </html>

@@ -1,15 +1,11 @@
-import mongoose from "mongoose";
+const mongoose =  require('mongoose');
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: true
     },
     lastName: {
-        type: String,
-        required: true
-    },
-    DisplayName: {
         type: String,
         required: true
     },
@@ -28,10 +24,18 @@ const userSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        minlength: 8,
+        maxlength: 32,
+        validate: {
+            validator: function(password) {
+                // Password must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character
+                return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/.test(password);
+            },
+            message: props => `${props.value} is not a valid password. Must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character (@$!%*?&).`
+        }
     }
 })
-
 const USER = mongoose.model('users', userSchema);
 
-export default USER;
+module.exports = USER;

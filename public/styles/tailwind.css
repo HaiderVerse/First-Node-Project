@@ -17,3 +17,21 @@
     background-color: #d1d5db;
     color: #9ca3af;
 }
+
+/* --------------------------form------------------------  */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove arrows in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Remove arrows in Internet Explorer */
+input[type=number] {
+    -ms-input-appearance: none;
+    margin: 0;
+}

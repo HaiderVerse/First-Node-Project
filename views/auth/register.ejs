@@ -1,45 +1,143 @@
-<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-          <!-- {/* <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"> */} -->
-          <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
-        </div>
-      
-        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form class="space-y-6" action="/users" method="POST">
-            <div>
-              <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
-              <div class="mt-2">
-                <input id="username" name="username" type="username" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-              </div>
-            </div>
+<div class="flex min-h-full flex-col justify-center px-6 py-8 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <!-- {/* <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"> */} -->
+    <h2
+      class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-indigo-600">
+      Create Your Profile
+    </h2>
+  </div>
 
-            <div>
-              <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
-              <div class="mt-2">
-                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-              </div>
-            </div>
-      
-            <div>
-              <div class="flex items-center justify-between">
-                <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-                <div class="text-sm">
-                  <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
-                </div>
-              </div>
-              <div class="mt-2">
-                <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-              </div>
-            </div>
-      
-            <div>
-              <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
-            </div>
-          </form>
-      
-          <p class="mt-10 text-center text-sm text-gray-500">
-            Not a member?
-            <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 14 day free trial</a>
-          </p>
+  <div class="mt-7 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-2" name="registerForm" action="/signup" method="POST">
+      <!-- first and last name -->
+      <div class="grid grid-cols-2 gap-x-3">
+        <div>
+          <label for="firstName"
+            class="block text-sm font-medium leading-6 text-white pl-1">First
+            Name</label>
+          <div class="mt-2">
+            <input type="text" id="firstName" name="firstName" required value="Hasnain"
+              class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus-within:outline-none sm:text-sm sm:leading-6"
+            >
+          </div>
         </div>
-    </div>
+        <div>
+          <label for="lastName"
+            class="block text-sm font-medium leading-6 text-white pl-1">Last
+            Name</label>
+          <div class="mt-2">
+            <input type="text" id="lastName" name="lastName" required value="Haider"
+              class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus-within:outline-none sm:text-sm sm:leading-6"
+            >
+          </div>
+        </div>
+      </div>
+      <!-- email -->
+      <div>
+        <label for="email"
+          class="block text-sm font-medium leading-6 text-white pl-1">Email
+          Address</label>
+        <div class="mt-2">
+          <input id="email" name="email" type="email" autocomplete="email" required value="Hasnain@gmail.com"
+            class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus-within:outline-none sm:text-sm sm:leading-6"
+          >
+        </div>
+      </div>
+      <!-- age and gender -->
+      <div class="grid grid-cols-3 gap-x-3">
+        <div class="col-span-1">
+          <label for="age"
+            class="block text-sm font-medium leading-6 text-white pl-1">Age</label>
+          <div class="mt-2">
+            <input type="number" id="age" name="age" min="16" max="100" required value="18"
+              class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus-within:outline-none sm:text-sm sm:leading-6"
+            >
+          </div>
+        </div>
+        <div class="col-span-2">
+          <label for="lastName"
+            class="block text-sm font-medium leading-6 text-white pl-1">Gender</label>
+          <div class="mt-2">
+            <select id="gender" name="gender" type="o" required
+              class="h-9 block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus-within:outline-none sm:text-sm sm:leading-6">
+              <option value="Gender" disabled ></option>
+              <option value="male" selected>Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- password -->
+      <div>
+        <div class="flex items-center justify-between">
+          <label for="password"
+            class="block text-sm font-medium leading-6 text-white pl-1">Password</label>
+        </div>
+        <div class="mt-2">
+          <div class="relative">
+            <input id="password" name="password" type="password" minlength="8" maxlength="32" required value="HHfutball@7"
+              class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus-within:outline-none sm:text-sm sm:leading-6"
+            >
+            <div class="absolute top-[22%] right-3 cursor-pointer">
+              <svg width="22px" height="22px" id="invisible"
+                viewBox="0 0 1024.00 1024.00" fill="#333333" stroke="#333333"
+                transform="rotate(0)">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                  id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                  stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+                  <defs><clippath><path fill="none"
+                        d="M124-288l388-672 388 672H124z"
+                        clip-rule="evenodd"></path></clippath></defs><path
+                    d="M508 624a112 112 0 0 0 112-112c0-3.28-.15-6.53-.43-9.74L498.26 623.57c3.21.28 6.45.43 9.74.43zm370.72-458.44L836 122.88a8 8 0 0 0-11.31 0L715.37 232.23Q624.91 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 0 0 0 51.5q56.7 119.43 136.55 191.45L112.56 835a8 8 0 0 0 0 11.31L155.25 889a8 8 0 0 0 11.31 0l712.16-712.12a8 8 0 0 0 0-11.32zM332 512a176 176 0 0 1 258.88-155.28l-48.62 48.62a112.08 112.08 0 0 0-140.92 140.92l-48.62 48.62A175.09 175.09 0 0 1 332 512z"></path><path
+                    d="M942.2 486.2Q889.4 375 816.51 304.85L672.37 449A176.08 176.08 0 0 1 445 676.37L322.74 798.63Q407.82 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 0 0 0-51.5z"></path>
+                </g>
+              </svg>
+              <svg class="hidden" fill="#333333" id="visible" width="22px"
+                height="22px" viewBox="0 0 121.03 121.03" stroke="#333333">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                  id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                  stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g>
+                    <path
+                      d="M1.35,64.212c7.9,9.9,31.4,36.3,59.2,36.3c27.8,0,51.3-26.399,59.2-36.3c1.699-2.2,1.699-5.3,0-7.399 c-7.9-9.9-31.4-36.3-59.2-36.3c-27.8-0.1-51.3,26.3-59.2,36.2C-0.45,58.913-0.45,62.012,1.35,64.212z M60.55,36.413 c13.3,0,24,10.7,24,24s-10.7,24-24,24c-13.3,0-24-10.7-24-24S47.25,36.413,60.55,36.413z"></path>
+                    <circle cx="60.55" cy="60.413" r="12"></circle> </g> </g>
+              </svg>
+            </div>
+          </div>
+          <ul class="list-disc pl-4 text-sm text-red-500 mt-2 hidden" id="validation">
+            <li id="strongReq">Strong!</li>
+            <li id="lowercaseReq">Lowercase!</li>
+            <li id="uppercaseReq">Uppercase!</li>
+            <li id="digitReq">Number!</li>
+            <li id="sp_charReq">Special Character!</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between">
+          <label for="re_password"
+            class="block text-sm font-medium leading-6 text-white pl-1">Re-Password</label>
+        </div>
+        <div class="mt-2">
+          <input id="re_password" name="re_password" type="password"
+            minlength="8" maxlength="32" required value="HHfutball@7"
+            class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus-within:outline-none sm:text-sm sm:leading-6"
+          >
+            <ul class="list-disc pl-4 text-sm text-red-500 mt-2">
+              <li id="matcher" class="relative hidden"><span class="text-[55px] absolute -top-[19px] -left-[18px]">.</span> Password not match</li>
+              <li id="re_strong" class="relative hidden"><span class="text-[55px] absolute -top-[19px] -left-[18px]">.</span> Password is not Strong</li>
+              <% if (locals.error) { %>
+                <li id="errorEmail" class="pl-1 text-sm text-red-500 mt-2"> <%= error %> </li>
+              <% } %>
+            </ul>
+        </div>
+      </div>
+      <!-- signup button -->
+      <div>
+        <button type="submit"
+          class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-6 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign
+          in</button>
+      </div>
+    </form>
+
+  </div>
+</div>

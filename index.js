@@ -1,9 +1,17 @@
-import express from 'express';
-import { fileURLToPath } from 'url';
-import path from 'path';
-import router from './routes/static.js';
+const express = require('express');
+const connectMongoDB = require('./connections/mongodb.js');
+const path = require('path');
+const router = require('./routes/static.js');
+const registeRouter = require('./routes/auth/register.js');
+const loginRouter = require('./routes/auth/login.js');
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url)); 
+
+// Connect to MongoDB
+
+connectMongoDB('mongodb://127.0.0.1:27017/Node-First-Project')
+.then(()=> {console.log('mongodb connection success')})
+.catch(err=> {console.log(err)});
+
 
 const app = express();
 const PORT = 5000;
@@ -12,9 +20,13 @@ const PORT = 5000;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 
 app.use('/', router);
+app.use('/signup', registeRouter);
+app.use('/login', loginRouter);
 
 // Start the server
 app.listen(PORT, () => {

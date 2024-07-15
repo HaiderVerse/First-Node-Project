@@ -1,9 +1,9 @@
-import express from 'express';
+const express = require('express');
+const { displayLoginForm,handleLogin } = require('../../controllers/auth/login');
 
 const router = express.Router();
+router.get('/', displayLoginForm);
 
-router.post('/', (req, res) => {
-    
-});
+router.post('/', handleLogin);
 
-export default router;
+module.exports = router;
