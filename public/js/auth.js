@@ -103,77 +103,45 @@ if (window.location.pathname === '/login') {
         password.type = "password";
     })
 
-    if (window.location.pathname === '/login') {
-        const loginForm = document.loginForm;
-        const error = document.getElementById('error');
+    // if (window.location.pathname === '/login') {
+    //     const loginForm = document.loginForm;
+    //     const error = document.getElementById('error');
     
-        loginForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const email = loginForm.email.value;
-            const password = loginForm.password.value;
+    //     loginForm.addEventListener('submit', async (event) => {
+    //         event.preventDefault();
+    //         const email = loginForm.email.value;
+    //         const password = loginForm.password.value;
     
-            try {
-                const response = await fetch('/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email, password }),
-                });
+    //         try {
+    //             const response = await fetch('/login', {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //                 body: JSON.stringify({ email, password }),
+    //             });
     
-                const data = await response.json(); // Parse JSON response
+    //             const data = await response.json(); // Parse JSON response
     
-                if (!response.ok) {
-                    throw new Error(data.error || 'Login failed');
-                }
+    //             if (!response.ok) {
+    //                 throw new Error(data.error || 'Login failed');
+    //             }
     
-                // Clear previous errors
-                error.textContent = '';
-                error.style.display = 'none';
+    //             // Clear previous errors
+    //             error.textContent = '';
+    //             error.style.display = 'none';
     
-                // Redirect to dashboard or another route after successful login
-                window.location.href = '/'; // Replace with your desired redirect URL
-            } catch (err) {
-                console.error('Error during login:', err);
-                error.textContent = err.message;
-                error.style.display = 'inline';
-            }
-        });
-    }
-    
-    
-    // loginForm.addEventListener('submit', async (event) => {
-    //     event.preventDefault();
-        
-    //     const email = loginForm.email.value;
-    //     const password = loginForm.password.value;
-    //     try {
-    //         const response = await fetch('/login', {
-    //             method: 'POST', // Specify the HTTP method as 'POST'
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({ email, password }), // Send the email and password as JSON
-    //         });
-
-    //         const data = await response.json();
-    //         if (!response.ok) {
-    //             throw new Error(data.error || 'Login failed');
+    //             // Redirect to dashboard or another route after successful login
+    //             window.location.href = '/'; // Replace with your desired redirect URL
+    //         } catch (err) {
+    //             console.error('Error during login:', err);
+    //             console.log(err);
+    //             error.textContent = 'invalid login credentials';
+    //             error.style.display = 'inline';
     //         }
-
-    //         // Clear previous errors
-    //         error.textContent = '';
-    //         error.style.display = 'none';
-
-    //         // Redirect or update UI accordingly after successful login
-    //         console.log('Login successful:', data.message);
-    //         // Example: window.location.href = '/dashboard'; // Redirect to dashboard
-    //     } catch (err) {
-    //         console.log('Error during login:', err);
-    //         error.textContent = err.message;
-    //         error.style.display = 'inline';
-    //     }
-    // });
+    //     });
+    // }
+    
 }
 
 

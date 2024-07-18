@@ -37,7 +37,6 @@ async function registerUser(req, res) {
         });
     }
 }
-
 module.exports = {
     displaySignupForm,
     registerUser

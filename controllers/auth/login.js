@@ -1,5 +1,5 @@
 const USER = require('../../models/user');
-
+const { setUser } = require('../../service/auth');
 function displayLoginForm(req, res) {
     res.render('layout/auth', {
         title: 'Login',
@@ -24,7 +24,8 @@ async function handleLogin(req, res) {
                 error: 'Incorrect password'
             });
         }
-        res.json({success: true});
+        res.cookie('uid', setUser(foundUser))
+        res.redirect('/');
     }
     catch (err) {
         console.error('Error during login:', err);
